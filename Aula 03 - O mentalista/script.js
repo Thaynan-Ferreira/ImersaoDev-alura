@@ -1,5 +1,6 @@
 var res = (document.querySelector("h2#resposta"))
-var numSecreto = 5
+var numSecreto = parseInt(Math.random() * 11)
+console.log(numSecreto)
 
 function chutar(){
     var chute = parseInt(document.querySelector("input#valor").value)
