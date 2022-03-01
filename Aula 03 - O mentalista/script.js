@@ -13,6 +13,11 @@ function chutar(){
     }
 
     else {
-        res.innerHTML = `você errou!` 
+        if (chute > numSecreto){
+            res.innerHTML = `você errou! O numero é menor que ${chute}` 
+        }
+        else{
+            res.innerHTML = `você errou! O numero é maior que ${chute}`
+        }        
     }
 }
