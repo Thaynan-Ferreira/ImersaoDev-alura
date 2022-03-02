@@ -38,3 +38,9 @@ body > img{
 img{
     max-height: 250px;
 }
+
+p{
+    text-align: center;
+    font-size: larger;
+    color: #ffffff;
+}
