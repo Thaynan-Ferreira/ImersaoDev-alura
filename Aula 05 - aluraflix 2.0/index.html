@@ -16,10 +16,13 @@
         <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
         <p class="page-subtitle">Qual seu filme favorito</p>
         <article class="form-wrapper">
-            <input type="text" name="link" id="link" placeholder="Insira o link de uma imagem">
-            <button onclick="addFilme()">Adicionar Filme</button>
+            <form action="">
+                <input type="text" name="link" id="link" placeholder="Insira o link de uma imagem">
+                <input type="text" name="nomeFilme" id="nomeFilme" placeholder="Insira o nome do Filme">
+                <button type="button" onclick="addFilme()">Adicionar Filme</button>
+            </form>
             <br>
-            <input type="text" name="link" id="removlink" placeholder="Qual link deseja remover">
+            <input type="text" name="removLink" id="removlink" placeholder="Qual link deseja remover">
             <button id="removLink" onclick="removFilme()">Remover Filme</button>
 
         </article>

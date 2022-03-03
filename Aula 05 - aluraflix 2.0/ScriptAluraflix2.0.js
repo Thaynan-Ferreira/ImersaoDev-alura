@@ -1,9 +1,11 @@
 let array = []
 function addFilme(){
     var campoFilme = document.querySelector("input#link").value
-
+    var campoNome = document.querySelector("input#nomeFilme").value
+    console.log(campoFilme)
+    console.log(campoNome)
     if(campoFilme.endsWith(".jpg")||campoFilme.endsWith(".png")){
-        listarFilmesNaTela(campoFilme) //passagem de parametro
+        listarFilmesNaTela(campoFilme, campoNome) //passagem de parametro
        
 
     }
@@ -11,17 +13,19 @@ function addFilme(){
         alert("Endereço invalido, formatos aceitos: .jpg e .png")
     }
     document.querySelector("input#link").value = ""
+    document.querySelector("input#nomeFilme").value = ""
 }
 
-function listarFilmesNaTela(filme){ //recebmento de parametro pode ser diferente da variavel original
+function listarFilmesNaTela(filme, nome){ //recebmento de parametro pode ser diferente da variavel original
     var filmesArray = []
-    filmesArray.push(filme)
+    filmesArray.push({'link':filme, 'nome' :nome})
+    console.log(filmesArray['link'])
     var listaFilmes = document.querySelector("section#listaFilmes")
-    for(var x = 0; x < filmesArray.length; x++){
-        var elemento = "<img src=" + filmesArray[x] + ">"
+    /*for(var x = 0; x < filmesArray['link'].length; x++){
+        var elemento = "<img src=" + filmesArray.link[x] + ">"
         listaFilmes.innerHTML = listaFilmes.innerHTML + elemento
         
-    }
+    }*/
     guardar(filme) //chamado da função que guarda os valores no vetor fora das funções
     
 }
