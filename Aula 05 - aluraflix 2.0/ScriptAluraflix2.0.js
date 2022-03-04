@@ -1,13 +1,16 @@
 let array = []
+let nome = []
 function addFilme(){
     var campoFilme = document.querySelector("input#link").value
-    var campoNome = document.querySelector("input#nomeFilme").value
-    console.log(campoFilme)
-    console.log(campoNome)
-    if(campoFilme.endsWith(".jpg")||campoFilme.endsWith(".png")){
-        listarFilmesNaTela(campoFilme, campoNome) //passagem de parametro
+    var nomeFilme = document.querySelector("input#nomeFilme").value
+
+    if(campoFilme.endsWith(".jpg")||campoFilme.endsWith(".png") && nomeFilme != ''){
+        listarFilmesNaTela(campoFilme, nomeFilme) //passagem de parametro
        
 
+    }
+    else if(nomeFilme == ''){
+        alert("Digite o nome do filme")
     }
     else{
         alert("Endereço invalido, formatos aceitos: .jpg e .png")
@@ -18,20 +21,22 @@ function addFilme(){
 
 function listarFilmesNaTela(filme, nome){ //recebmento de parametro pode ser diferente da variavel original
     var filmesArray = []
-    filmesArray.push({'link':filme, 'nome' :nome})
-    console.log(filmesArray['link'])
+    var nomeArray = []
+    nomeArray.push(nome)
+    filmesArray.push(filme)
     var listaFilmes = document.querySelector("section#listaFilmes")
-    /*for(var x = 0; x < filmesArray['link'].length; x++){
-        var elemento = "<img src=" + filmesArray.link[x] + ">"
+    for(var x = 0; x < filmesArray.length; x++){
+        var elemento = "<img src=" + filmesArray[x] + "> " +"<p>"+ nomeArray[x] +"</p>"
         listaFilmes.innerHTML = listaFilmes.innerHTML + elemento
         
-    }*/
-    guardar(filme) //chamado da função que guarda os valores no vetor fora das funções
+    }
+    guardar(filme, nome) //chamado da função que guarda os valores no vetor fora das funções
     
 }
 
-function guardar(filmes){
+function guardar(filmes, nomes){
     array.push(filmes)
+    nome.push(nomes)
 }
 
 function removFilme(){ //FUNÇÃO RESPONSAVEL POR PEGAR O VALOR DIGITADO NO INPUT DE REMOVER O FILME E TEXTAR SE O VALOR ESTÁ OU NAO NO ARRAY
@@ -52,7 +57,8 @@ function remover(indice){
     console.log(array)
     listaFilmes.innerHTML = ""
     for(var x = 0; x < array.length; x++){
-        var elemento = "<img src=" + array[x] + ">"
+        var elemento = "<img src=" + array[x] + "> " +"<p>"+ nome[x] +"</p>"
         listaFilmes.innerHTML = listaFilmes.innerHTML + elemento
     }
 }
+
