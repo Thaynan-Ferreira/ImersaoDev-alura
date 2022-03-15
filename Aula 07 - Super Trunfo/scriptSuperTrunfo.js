@@ -24,3 +24,19 @@ let cartas = [
         }
     }
 ]
+
+var cartaMaquina
+var cartaPlayer
+
+function sortearCarta() {
+    var numeroCartaMaquina = parseInt(Math.random() * 3)
+    cartaMaquina = cartas[numeroCartaMaquina]
+    console.log(cartaMaquina)
+
+    var numeroCartaPlayer = parseInt(Math.random() * 3)
+    while(numeroCartaMaquina == numeroCartaPlayer){
+        var numeroCartaPlayer = parseInt(Math.random() * 3)
+    }
+    cartaPlayer = cartas[numeroCartaPlayer]
+    console.log(cartaPlayer)
+}
