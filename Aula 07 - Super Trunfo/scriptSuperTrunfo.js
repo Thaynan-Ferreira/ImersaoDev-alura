@@ -31,7 +31,6 @@ var cartaPlayer
 function sortearCarta() {
     var numeroCartaMaquina = parseInt(Math.random() * 3)
     cartaMaquina = cartas[numeroCartaMaquina]
-    console.log(cartaMaquina)
 
     var numeroCartaPlayer = parseInt(Math.random() * 3)
     while(numeroCartaMaquina == numeroCartaPlayer){
@@ -39,4 +38,19 @@ function sortearCarta() {
     }
     cartaPlayer = cartas[numeroCartaPlayer]
     console.log(cartaPlayer)
+
+    document.querySelector("button#btnSortear").disabled = true
+    document.querySelector("button#btnJogar").disabled = false
+
+    exibirOpcoes()
+}
+
+function exibirOpcoes(){
+    var opcoes = document.querySelector("div#opcoes")
+    var opcoesTexto = ""
+
+    for(var atributo in cartaPlayer.atributos){
+        opcoesTexto += `<input type='radio' name='atributo' value='${atributo}'>`
+    }
+    opcoes.innerHTML = opcoesTexto
 }
