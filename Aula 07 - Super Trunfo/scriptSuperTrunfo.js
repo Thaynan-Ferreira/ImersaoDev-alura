@@ -2,25 +2,25 @@ let cartas = [
     {
         nome: "Bulbasauro",
         atributos: {
-            ataque: 7,
-            defesa: 8,
-            magia: 6
+            Ataque: 7,
+            Defesa: 8,
+            Magia: 6
         }
     },
     {
         nome: "Pikachu",
         atributos: {
-            ataque: 8,
-            defesa: 5,
-            magia: 8
+            Ataque: 8,
+            Defesa: 5,
+            Magia: 8
         }
     },
     {
         nome: "Dragonite",
         atributos: {
-            ataque: 9,
-            defesa: 7,
-            magia: 7
+            Ataque: 9,
+            Defesa: 7,
+            Magia: 7
         }
     }
 ]
@@ -50,7 +50,34 @@ function exibirOpcoes(){
     var opcoesTexto = ""
 
     for(var atributo in cartaPlayer.atributos){
-        opcoesTexto += `<input type='radio' name='atributo' value='${atributo}'>`
+        opcoesTexto += `<input type='radio' name='atributo' value='${atributo}'> ${atributo}`
     }
     opcoes.innerHTML = opcoesTexto
+}
+
+function atributoSelect() {
+    var radioAtributos = document.getElementsByName("atributo")
+    
+    for(var i = 0; i <radioAtributos.length; i++){
+        if (radioAtributos[i].checked == true) {
+            return radioAtributos[i].value
+        }
+    }
+}
+
+function jogar() {
+    var atributo = atributoSelect()
+    var atributoPlayer = cartaPlayer.atributos[atributo]
+    var atributoMaquina = cartaMaquina.atributos[atributo]
+    var resultado = document.querySelector("div#result")
+
+    if (atributoPlayer > atributoMaquina){
+        resultado.innerHTML = "<h2>Você ganhou</h2>"
+    }
+    else if (atributoPlayer == atributoMaquina) {
+        resultado.innerHTML = "<h2>Você empatou</h2>"
+    }
+    else{
+        resultado.innerHTML = "<h2>Você perdeu</h2>"
+    }
 }
