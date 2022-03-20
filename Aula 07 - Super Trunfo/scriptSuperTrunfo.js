@@ -1,3 +1,4 @@
+// DECLARA O OBJETO COM AS CARTAS DO JOGO
 let cartas = [
     {
         nome: "Bulbasauro",
@@ -25,9 +26,11 @@ let cartas = [
     }
 ]
 
+//DEFINE ONDE SERÁ SALVA A CARTA DO JOGADOR E DA MAQUINA DURANTE O JOGO
 var cartaMaquina
 var cartaPlayer
 
+//FUNÇÃO QUE SORTEIA AS CARTAS
 function sortearCarta() {
     var numeroCartaMaquina = parseInt(Math.random() * 3)
     cartaMaquina = cartas[numeroCartaMaquina]
@@ -45,6 +48,7 @@ function sortearCarta() {
     exibirOpcoes()
 }
 
+//PEDE A OPÇÃO Q O JOGAR QUER USAR DURANTE O GAME
 function exibirOpcoes(){
     var opcoes = document.querySelector("div#opcoes")
     var opcoesTexto = ""
@@ -55,6 +59,7 @@ function exibirOpcoes(){
     opcoes.innerHTML = opcoesTexto
 }
 
+//SALVA QUAL A OPÇÃO QUE O USUARIO ESCOLHEU PARA O JOGO
 function atributoSelect() {
     var radioAtributos = document.getElementsByName("atributo")
     
@@ -65,6 +70,7 @@ function atributoSelect() {
     }
 }
 
+//DETERMINA O VENCEDOR E MOSTRA NA TELA SE O JOGADOR VENCEU OU NÃO
 function jogar() {
     var atributo = atributoSelect()
     var atributoPlayer = cartaPlayer.atributos[atributo]
